@@ -2,7 +2,15 @@
 
 A full-stack Product Management application built with **ASP.NET Core** and **Angular**.
 
-The application allows users to manage products, monitor inventory levels, and perform stock operations through a modern Angular Material interface.
+## Dashboard
+
+The application provides an inventory dashboard with:
+
+- Total products
+- Total inventory value
+- Total units in stock
+- Low stock products
+- Quick stock replenishment
 
 ---
 
@@ -138,7 +146,7 @@ dotnet run
 Swagger
 
 ```
-http://localhost:5088/swagger
+http://localhost:8080/swagger
 ```
 
 ---

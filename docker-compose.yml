@@ -1,0 +1,22 @@
+﻿services:
+
+  api:
+    build:
+      context: ./ProductManagementAPI
+
+    container_name: product-api
+
+    ports:
+      - "8080:8080"
+
+  frontend:
+    build:
+      context: ./ProductManagementFrontend
+
+    container_name: product-frontend
+
+    depends_on:
+      - api
+
+    ports:
+      - "4200:80"

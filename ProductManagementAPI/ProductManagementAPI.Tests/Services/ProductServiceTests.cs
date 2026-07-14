@@ -1,7 +1,8 @@
-﻿using Moq;
+﻿using Microsoft.Extensions.Logging;
+using Moq;
 using ProductManagementAPI.Common.Enums;
 using ProductManagementAPI.Data.Entities;
-using ProductManagementAPI.DTOs;
+using ProductManagementAPI.DTOs.Product;
 using ProductManagementAPI.Interfaces;
 using ProductManagementAPI.Services;
 
@@ -12,11 +13,10 @@ public class ProductServiceTests
     private readonly Mock<IProductRepository> _repository;
     private readonly ProductService _service;
 
-    public ProductServiceTests()
+    public ProductServiceTests(ILogger<ProductService> logger)
     {
         _repository = new Mock<IProductRepository>();
-
-        _service = new ProductService(_repository.Object);
+        _service    = new ProductService(_repository.Object, logger);
     }
 
     [Fact]

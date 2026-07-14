@@ -14,9 +14,7 @@ import { environment } from '../../../../environments/environment';
 export class ProductService {
 
   private readonly http     = inject(HttpClient);
-  private readonly snackBar = inject(MatSnackBar);
-
-private readonly apiUrl = `${environment.apiUrl}/products`;
+  private apiUrl             = `${environment.apiUrl}/products`;
 
   getAll(): Observable<Product[]> {
     return this.http.get<Product[]>(this.apiUrl);
