@@ -14,6 +14,13 @@ The application provides an inventory dashboard with:
 
 ---
 
+## API Documentation
+
+- docs/swagger.json
+- docs/openapi.yaml
+
+---
+
 ## Features
 
 ### Backend
