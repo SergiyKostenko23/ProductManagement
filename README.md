@@ -1,121 +1,195 @@
-# Product Management API
+# Product Management
 
-A RESTful API for managing products.
+A full-stack Product Management application built with **ASP.NET Core** and **Angular**.
+
+The application allows users to manage products, monitor inventory levels, and perform stock operations through a modern Angular Material interface.
+
+---
 
 ## Features
 
-- Create products
-- Update products
-- Delete products
-- Search by name
-- Search by stock range
-- Search by product number
+### Backend
+
+- RESTful API
+- Create, update and delete products
+- Automatic product number generation
+- Search products by name
+- Search products by stock range
+- Search products by product number
 - Increase stock
 - Decrease stock
-- Automatic product number generation
+- Dashboard statistics
 - Input validation
 - Swagger documentation
 
+### Frontend
+
+- Dashboard
+- Product List
+- Product Details
+- Create Product
+- Edit Product
+- Delete Product
+- Search products
+- Stock range filtering
+- Sorting
+- Pagination
+- Low stock dashboard
+- Add stock dialog
+- Remove stock dialog
+- Responsive Angular Material UI
+
+---
+
 ## Technologies
+
+### Backend
 
 - ASP.NET Core 10
 - Entity Framework Core
 - SQLite
-- Swagger (OpenAPI)
 - FluentValidation
+- Swagger (OpenAPI)
 - xUnit
+
+### Frontend
+
+- Angular 20
+- Angular Material
+- TypeScript
+- RxJS
+
+### DevOps
+
 - Docker
 - Docker Compose
 
 ---
 
-## Running locally
+# Application Architecture
 
-Restore dependencies:
+```
+Angular
+       │
+       ▼
+ASP.NET Core Web API
+       │
+       ▼
+Services
+       │
+       ▼
+Repositories
+       │
+       ▼
+SQLite Database
+```
+
+---
+
+# Project Structure
+
+```
+ProductManagement
+│
+├── ProductManagementAPI
+│
+│   ├── Controllers
+│   ├── Services
+│   ├── Repositories
+│   ├── Data
+│   ├── DTOs
+│   ├── Validators
+│   └── Tests
+│
+└── ProductManagementFrontend
+    │
+    ├── Core
+    ├── Shared
+    ├── Features
+    │     ├── Dashboard
+    │     └── Products
+    └── Assets
+```
+
+---
+
+# Running locally
+
+## Backend
+
+Restore dependencies
 
 ```bash
 dotnet restore
 ```
 
-Apply database migrations:
+Apply migrations
 
 ```bash
 dotnet ef database update
 ```
 
-Run the API:
+Run
 
 ```bash
 dotnet run
 ```
 
-Swagger:
+Swagger
 
 ```
 http://localhost:5088/swagger
 ```
 
-(Replace the port if your project uses a different one.)
+---
+
+## Frontend
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Run
+
+```bash
+ng serve
+```
+
+Open
+
+```
+http://localhost:4200
+```
 
 ---
 
-## Running with Docker
+# Docker
 
-### Build the image
-
-```bash
-docker build -t product-management-api .
-```
-
-### Run the container
-
-```bash
-docker run --rm -p 8080:8080 product-management-api
-```
-
-Swagger will be available at:
-
-```
-http://localhost:8080/swagger
-```
-
----
-
-## Running with Docker Compose
-
-Build and start the application:
+Build everything
 
 ```bash
 docker compose up --build
 ```
 
-Run in detached mode:
+Detached
 
 ```bash
 docker compose up -d
 ```
 
-Stop the application:
+Stop
 
 ```bash
 docker compose down
 ```
 
-View logs:
-
-```bash
-docker compose logs -f
-```
-
-Swagger:
-
-```
-http://localhost:8080/swagger
-```
-
 ---
 
-## Running Tests
+# Testing
+
+Backend
 
 ```bash
 dotnet test
@@ -123,40 +197,30 @@ dotnet test
 
 ---
 
-## Database
 
-The project uses SQLite.
+# Screenshots
 
-Database schema is managed through Entity Framework Core migrations.
+Dashboard
 
-Create a new migration:
+> Add screenshot
 
-```bash
-dotnet ef migrations add MigrationName
-```
+Products
 
-Apply migrations:
+> Add screenshot
 
-```bash
-dotnet ef database update
-```
+Product Details
+
+> Add screenshot
+
+Create Product
+
+> Add screenshot
 
 ---
 
-## Project Structure
+# Author
 
-```
-Common/
-    Enums/
-Controllers/
-Data/
-    Entities/
-    Migrations/
-DTOs/
-Interfaces/
-Mappings/
-Middleware/
-Repositories/
-Services/
-Validators/
-```
+**Sergiy Kostenko**
+
+GitHub:
+https://github.com/SergiyKostenko23
