@@ -1,0 +1,47 @@
+﻿# Build folders
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Rider
+.idea/
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# NuGet
+packages/
+
+# Docker
+docker-compose.override.yml
+
+# SQLite database
+Data/products.db
+Data/*.db
+Data/*.db-shm
+Data/*.db-wal
+
+# Test results
+TestResults/
+
+# Coverage
+coverage/
+
+# Publish
+publish/
+
+# Angular
+node_modules/
+dist/
+.angular/

@@ -1,0 +1,146 @@
+@if (product) {
+
+<mat-card>
+
+  <mat-card-header>
+
+    <mat-card-title>
+
+      {{ product.name }}
+
+    </mat-card-title>
+
+    <mat-card-subtitle>
+
+      Product #{{ product.productNumber }}
+
+    </mat-card-subtitle>
+
+  </mat-card-header>
+
+  <mat-card-content>
+
+    <p>
+
+      <strong>Category:</strong>
+
+      {{ product.category }}
+
+    </p>
+
+    <p>
+
+      <strong>Price:</strong>
+
+      {{ product.price | currency }}
+
+    </p>
+
+    <p>
+
+      <strong>Description:</strong>
+
+    </p>
+
+    <p>
+
+      {{ product.description }}
+
+    </p>
+
+    <p>
+
+<div class="stock-section">
+
+  <h3>Current Stock</h3>
+
+  <div class="stock-info">
+
+    <span
+      class="stock-value"
+      [ngClass]="getStockClass()">
+
+      {{ product.stock }} Units
+
+    </span>
+
+    <span
+      class="stock-status"
+      [ngClass]="getStockClass()">
+
+      {{ getStockStatus() }}
+
+    </span>
+
+  </div>
+
+  <div class="stock-actions">
+
+    <button
+        mat-raised-button
+        color="primary"
+        (click)="addStock()">
+
+        <mat-icon>add</mat-icon>
+
+        Add Stock
+
+    </button>
+
+    <button
+        mat-raised-button
+        color="accent"
+        (click)="removeStock()">
+
+        <mat-icon>remove</mat-icon>
+
+        Remove Stock
+
+    </button>
+
+  </div>
+
+</div>
+
+  </mat-card-content>
+
+  <mat-card-actions>
+
+    <button
+        mat-raised-button
+        color="primary"
+        [routerLink]="['/products', product.id, 'edit']">
+
+        <mat-icon>edit</mat-icon>
+        Edit
+
+    </button>
+
+    <button
+        mat-raised-button
+        color="warn"
+        (click)="delete()">
+
+        <mat-icon>delete</mat-icon>
+        Delete
+
+    </button>
+
+    <button
+        mat-raised-button
+        routerLink="/">
+
+        <mat-icon>arrow_back</mat-icon>
+        Back
+
+    </button>
+
+  </mat-card-actions>
+
+</mat-card>
+
+} @else {
+
+<p>Loading...</p>
+
+}

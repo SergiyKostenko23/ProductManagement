@@ -1,0 +1,60 @@
+button {
+  align-self: flex-end;
+}
+
+table {
+  width: 100%;
+}
+
+.toolbar {
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+
+}
+
+.toolbar h1 {
+
+  margin: 0;
+  white-space: nowrap;
+
+}
+
+.toolbar-right {
+
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  flex: 1;
+  justify-content: flex-end;
+
+}
+
+.search-field {
+
+  width: 300px;
+
+}
+
+.stock-field {
+
+  width: 150px;
+
+}
+
+.toolbar-right .mat-mdc-form-field {
+
+  margin-bottom: -1.25em;
+
+}
+
+.toolbar button {
+
+  height: 42px;
+
+}

@@ -1,0 +1,14 @@
+@if (product) {
+
+  <app-product-form
+    [product]="product"
+    buttonText="Save Changes"
+    (submitted)="update($event)">
+  </app-product-form>
+
+}
+@else {
+
+  <p>Loading product...</p>
+
+}

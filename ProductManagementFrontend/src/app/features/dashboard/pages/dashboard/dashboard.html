@@ -1,0 +1,286 @@
+<div class="dashboard">
+
+  <h1>Dashboard</h1>
+
+  <div class="summary-grid">
+
+    <!-- Total Products -->
+    <mat-card class="summary-card">
+
+      <mat-card-content>
+
+        <mat-icon class="summary-icon">
+          inventory_2
+        </mat-icon>
+
+        <div class="summary-value">
+
+          {{ dashboard?.totalProducts }}
+
+        </div>
+
+        <div class="summary-title">
+
+          Total Products
+
+        </div>
+
+      </mat-card-content>
+
+    </mat-card>
+
+    <!-- Inventory Value -->
+    <mat-card class="summary-card">
+
+      <mat-card-content>
+
+        <mat-icon class="summary-icon">
+          payments
+        </mat-icon>
+
+        <div class="summary-value">
+
+          {{ dashboard?.totalInventoryValue | currency }}
+
+        </div>
+
+        <div class="summary-title">
+
+          Inventory Value
+
+        </div>
+
+      </mat-card-content>
+
+    </mat-card>
+
+    <!-- Low Stock -->
+    <mat-card class="summary-card">
+
+      <mat-card-content>
+
+        <mat-icon class="summary-icon warning">
+          warning
+        </mat-icon>
+
+        <div class="summary-value">
+
+          {{ dashboard?.lowStockProducts }}
+
+        </div>
+
+        <div class="summary-title">
+
+          Low Stock Products
+
+        </div>
+
+      </mat-card-content>
+
+    </mat-card>
+
+    <!-- Units In Stock -->
+    <mat-card class="summary-card">
+
+      <mat-card-content>
+
+        <mat-icon class="summary-icon">
+          warehouse
+        </mat-icon>
+
+        <div class="summary-value">
+
+          {{ dashboard?.totalUnitsInStock }}
+
+        </div>
+
+        <div class="summary-title">
+
+          Units In Stock
+
+        </div>
+
+      </mat-card-content>
+
+    </mat-card>
+
+  </div>
+
+  <mat-card class="table-card">
+
+    <mat-card-header>
+
+      <mat-card-title>
+
+        Products Requiring Attention
+
+      </mat-card-title>
+
+      <mat-card-subtitle>
+
+        These products should be restocked soon
+
+      </mat-card-subtitle>
+
+    </mat-card-header>
+
+    <mat-card-content>
+
+      @if (lowStockProducts.length > 0) {
+
+        <table
+          mat-table
+          [dataSource]="lowStockProducts"
+          class="mat-elevation-z1">
+
+          <!-- Product Number -->
+          <ng-container matColumnDef="productNumber">
+
+            <th mat-header-cell *matHeaderCellDef>
+
+              Number
+
+            </th>
+
+            <td mat-cell *matCellDef="let product">
+
+              {{ product.productNumber }}
+
+            </td>
+
+          </ng-container>
+
+          <!-- Name -->
+          <ng-container matColumnDef="name">
+
+            <th mat-header-cell *matHeaderCellDef>
+
+              Name
+
+            </th>
+
+            <td mat-cell *matCellDef="let product">
+
+              <a [routerLink]="['/products', product.id]">
+
+                {{ product.name }}
+
+              </a>
+
+            </td>
+
+          </ng-container>
+
+          <!-- Category -->
+          <ng-container matColumnDef="category">
+
+            <th mat-header-cell *matHeaderCellDef>
+
+              Category
+
+            </th>
+
+            <td mat-cell *matCellDef="let product">
+
+              {{ product.category }}
+
+            </td>
+
+          </ng-container>
+
+          <!-- Stock -->
+          <ng-container matColumnDef="stock">
+
+            <th mat-header-cell *matHeaderCellDef>
+
+              Stock
+
+            </th>
+
+            <td mat-cell *matCellDef="let product">
+
+              <div class="stock-cell">
+
+                <span
+                  class="stock-badge"
+                  [ngClass]="getStockClass(product)">
+
+                  {{ product.stock }}
+
+                </span>
+
+                <small>
+
+                  {{ getStockStatus(product) }}
+
+                </small>
+
+              </div>
+
+            </td>
+
+          </ng-container>
+
+          <!-- Actions -->
+          <ng-container matColumnDef="actions">
+
+            <th mat-header-cell *matHeaderCellDef>
+
+              Actions
+
+            </th>
+
+            <td mat-cell *matCellDef="let product">
+
+                <button
+
+                    mat-icon-button
+                    color="primary"
+                    (click)="addStock(product)"
+                    matTooltip="Add Stock">
+
+                    <mat-icon>add_circle</mat-icon>
+
+                </button>
+
+            </td>
+
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        </table>
+
+      } @else {
+
+        <div class="empty-state">
+
+          <mat-icon class="empty-icon">
+
+            check_circle
+
+          </mat-icon>
+
+          <h3>
+
+            Everything looks good!
+
+          </h3>
+
+          <p>
+
+            No products currently require restocking.
+
+          </p>
+
+        </div>
+
+      }
+
+    </mat-card-content>
+
+  </mat-card>
+
+</div>

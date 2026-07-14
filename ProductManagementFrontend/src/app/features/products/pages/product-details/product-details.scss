@@ -1,0 +1,165 @@
+mat-card {
+
+  max-width: 900px;
+
+  margin: 32px auto;
+
+}
+
+.details-grid {
+
+  display: grid;
+
+  grid-template-columns: 160px 1fr;
+
+  row-gap: 18px;
+
+  column-gap: 24px;
+
+  margin: 24px 0;
+
+}
+
+.label mat-icon {
+
+  color: #1976d2;
+
+  font-size: 20px;
+
+  width: 20px;
+
+  height: 20px;
+
+}
+
+.section-title {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 20px;
+
+}
+
+.section-title mat-icon {
+
+  color: #1976d2;
+
+}
+
+mat-card-title {
+
+  font-size: 30px;
+
+  font-weight: 600;
+
+}
+
+mat-card-subtitle {
+
+  font-size: 16px;
+
+  margin-top: 6px;
+
+  color: #757575;
+
+}
+
+.stock-section {
+
+  margin-top: 28px;
+
+}
+
+.stock-info {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+
+  margin: 18px 0;
+
+}
+
+.stock-value {
+
+  font-size: 40px;
+
+  font-weight: 700;
+
+}
+
+.stock-status {
+
+  padding: 6px 14px;
+
+  border-radius: 16px;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+}
+
+.in-stock {
+
+  color: #2e7d32;
+
+}
+
+.low-stock {
+
+  color: #ef6c00;
+
+}
+
+.out-of-stock {
+
+  color: #c62828;
+
+}
+
+.stock-status.in-stock {
+
+  background: #e8f5e9;
+
+}
+
+.stock-status.low-stock {
+
+  background: #fff3e0;
+
+}
+
+.stock-status.out-of-stock {
+
+  background: #ffebee;
+
+}
+
+.stock-actions {
+
+  display: flex;
+
+  gap: 12px;
+
+  margin-top: 20px;
+
+}
+
+mat-card-actions {
+
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 12px;
+
+  padding: 16px;
+
+}

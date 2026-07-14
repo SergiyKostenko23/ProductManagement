@@ -1,0 +1,30 @@
+<mat-toolbar class="navbar">
+
+  <span class="logo">
+    Product Management
+  </span>
+
+  <span class="spacer"></span>
+
+  <a
+    mat-button
+    routerLink="/"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }">
+    Dashboard
+  </a>
+
+  <a
+    mat-button
+    routerLink="/products"
+    routerLinkActive="active">
+    Products
+  </a>
+
+  <a
+    mat-raised-button
+    routerLink="/products/new">
+    New Product
+  </a>
+
+</mat-toolbar>
